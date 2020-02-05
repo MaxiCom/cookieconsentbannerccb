@@ -148,7 +148,7 @@ class CookieConsentBanner extends Module
 
         $helper->fields_value['ccb-text'] = Configuration::get('ccb-text');
         $helper->fields_value['ccb-buttontext'] = Configuration::get('ccb-buttontext');
-        $helper->fields_value['ccb-textfont'] = Configuration::get('ccb-textfont');
+        //$helper->fields_value['ccb-textfont'] = Configuration::get('ccb-textfont');
         $helper->fields_value['ccb-tc'] = Configuration::get('ccb-tc');
         $helper->fields_value['ccb-btc'] = Configuration::get('ccb-btc');
         $helper->fields_value['ccb-bc'] = Configuration::get('ccb-bc');
@@ -170,7 +170,7 @@ class CookieConsentBanner extends Module
         if (Tools::isSubmit('submit' . $this->name)) {
             $ccbText = strval(Tools::getValue('ccb-text'));
             $ccbButtonText = strval(Tools::getValue('ccb-buttontext'));
-            $ccbTextFont = strval(Tools::getValue('ccb-textfont'));
+            //$ccbTextFont = strval(Tools::getValue('ccb-textfont'));
             $ccbTC = strval(Tools::getValue('ccb-tc'));
             $ccbBTC = strval(Tools::getValue('ccb-btc'));
             $ccbBC = strval(Tools::getValue('ccb-bc'));
@@ -179,7 +179,7 @@ class CookieConsentBanner extends Module
 
             if (!$ccbText
                 || !$ccbButtonText
-                || !$ccbTextFont
+                //|| !$ccbTextFont
                 || !$ccbTC
                 || !$ccbBTC
                 || !$ccbBC
@@ -187,15 +187,13 @@ class CookieConsentBanner extends Module
                 || !$ccbBHBC
                 || empty($ccbText)
                 || empty($ccbButtonText)
-                || empty($ccbTextFont)
+                //|| empty($ccbTextFont)
                 || empty($ccbTC)
                 || empty($ccbBTC)
                 || empty($ccbBC)
                 || empty($ccbBBC)
                 || empty($ccbBHBC)
-                || !Validate::isGenericName($ccbText)
-                || !Validate::isGenericName($ccbButtonText)
-                || !Validate::isGenericName($ccbTextFont)
+                //|| !Validate::isGenericName($ccbTextFont)
                 || !Validate::isGenericName($ccbTC)
                 || !Validate::isGenericName($ccbBTC)
                 || !Validate::isGenericName($ccbBC)
@@ -206,7 +204,7 @@ class CookieConsentBanner extends Module
             } else {
                 Configuration::updateValue('ccb-text', $ccbText);
                 Configuration::updateValue('ccb-buttontext', $ccbButtonText);
-                Configuration::updateValue('ccb-textfont', $ccbTextFont);
+                //Configuration::updateValue('ccb-textfont', $ccbTextFont);
                 Configuration::updateValue('ccb-tc', $ccbTC);
                 Configuration::updateValue('ccb-btc', $ccbBTC);
                 Configuration::updateValue('ccb-bc', $ccbBC);
@@ -231,7 +229,7 @@ class CookieConsentBanner extends Module
             [
                 'ccbtext' => Configuration::get('ccb-text'),
                 'ccbbuttontext' => Configuration::get('ccb-buttontext'),
-                'ccbtextfont' => Configuration::get('ccb-textfont'),
+                //'ccbtextfont' => Configuration::get('ccb-textfont'),
                 'ccbtc' => Configuration::get('ccb-tc'),
                 'ccbbtc' => Configuration::get('ccb-btc'),
                 'ccbbc' => Configuration::get('ccb-bc'),
@@ -253,7 +251,7 @@ class CookieConsentBanner extends Module
         return (parent::uninstall() &&
             Configuration::deleteByName('ccb-text') &&
             Configuration::deleteByName('ccb-buttontext') &&
-            Configuration::deleteByName('ccb-textfont') &&
+            //Configuration::deleteByName('ccb-textfont') &&
             Configuration::deleteByName('ccb-tc') &&
             Configuration::deleteByName('ccb-btc') &&
             Configuration::deleteByName('ccb-bc') &&
@@ -270,9 +268,9 @@ class CookieConsentBanner extends Module
     {
         return (parent::install() &&
             $this->registerHook('displayFooter') &&
-            Configuration::updateValue('ccb-text', `<b>Do you like cookies?</b>  We use cookies to ensure you get the best experience on our website.`) &&
-            Configuration::updateValue('ccb-buttontext', 'I agree') &&
-            Configuration::updateValue('ccb-textfont', 'rand') &&
+            Configuration::updateValue('ccb-text', '<b>Do you like cookies?</b> We use cookies to ensure you get the best experience on our website.', true) &&
+            Configuration::updateValue('ccb-buttontext', 'I agree', true) &&
+            //Configuration::updateValue('ccb-textfont', 'rand') &&
             Configuration::updateValue('ccb-tc', 'white') &&
             Configuration::updateValue('ccb-btc', 'white') &&
             Configuration::updateValue('ccb-bc', '#212327') &&
