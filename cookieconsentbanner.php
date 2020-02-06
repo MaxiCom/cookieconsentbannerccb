@@ -37,7 +37,7 @@ class CookieConsentBanner extends Module
         $this->author = 'Maxime Morlet';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
-            'min' => '1.5'
+            'min' => '1.6'
         ];
         $this->bootstrap = true;
 
