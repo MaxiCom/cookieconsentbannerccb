@@ -1,12 +1,12 @@
 <?php
 
 /**
- * CookieConsentBanner Module Main Php File
+ * CookieConsentBannerCCB Module Main Php File
  *
  * PHP version 5.4
  *
  * @category Module
- * @package  CookieConsentBanner
+ * @package  CookieConsentBannerCCB
  * @author   Maxime Morlet <Maxime.Morlet@outlook.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://Maxicom.pro
@@ -16,22 +16,22 @@ if (!defined('_PS_VERSION_')) {
 }
 
 /**
- * CookieConsentBanner Main Module Class
+ * CookieConsentBannerCCB Main Module Class
  *
  * @category Class
- * @package  CookieConsentBanner
+ * @package  CookieConsentBannerCCB
  * @author   Maxime Morlet <Maxime.Morlet@outlook.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://Maxicom.pro
  */
-class CookieConsentBanner extends Module
+class CookieConsentBannerCCB extends Module
 {
     /**
      * Constructor Method
      */
     public function __construct()
     {
-        $this->name = 'cookieconsentbanner';
+        $this->name = 'cookieconsentbannerccb';
         $this->tab = 'front_office_features';
         $this->version = '0.0.1';
         $this->author = 'Maxime Morlet';
@@ -40,6 +40,7 @@ class CookieConsentBanner extends Module
             'min' => '1.6'
         ];
         $this->bootstrap = true;
+        $this->module_key = '8a79b8415daaf0ce2e37adbef3daa212';
 
         parent::__construct();
 
